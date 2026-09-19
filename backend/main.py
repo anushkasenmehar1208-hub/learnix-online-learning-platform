@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, SQLModel, select
 
 from database import engine
+from seed import seed_courses
 from models import (
     Course,
     CourseCreate,
@@ -51,6 +52,7 @@ otp_store = {}
 @app.on_event("startup")
 def create_tables():
     SQLModel.metadata.create_all(engine)
+    seed_courses()
 
 
 @app.get("/")

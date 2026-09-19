@@ -246,11 +246,17 @@ courses = [
 ]
 
 
-with Session(engine) as session:
-    existing_course = session.exec(select(Course)).first()
-    if existing_course:
-        print("Courses already exist. Seed skipped.")
-    else:
-        session.add_all(courses)
-        session.commit()
-        print("Courses added successfully!")
+def seed_courses():
+    with Session(engine) as session:
+        existing_course = session.exec(select(Course)).first()
+
+        if existing_course:
+            print("Courses already exist. Seed skipped.")
+        else:
+            session.add_all(courses)
+            session.commit()
+            print("Courses added successfully!")
+
+
+if __name__ == "__main__":
+    seed_courses()
