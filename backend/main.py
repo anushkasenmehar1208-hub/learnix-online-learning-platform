@@ -36,7 +36,7 @@ app.add_middleware(
     allow_origins=[
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://learnix-online-learning-platform.vercel.app",
+    "https://learnix-online-learning-platform-8u.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
